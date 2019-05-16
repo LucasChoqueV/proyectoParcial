@@ -1,17 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
         <ui:composition template="./WEB-INF/templates/plantillaTempalte.xhtml">
 
             <ui:define name="content">
-                content
+                <h:form>
+                    <p:megaMenu orientation="Horizontal" style="margin-top: 20px">
+                        <p:submenu label="Computadoras">
+                            <p:column>
+                                <p:submenu label="Notebooks">
+                                    <p:menuitem value="Dell" outcome="dell"/>
+                                    <p:menuitem value="Lenovo"/>
+                                </p:submenu>
+                            </p:column>   
+                        </p:submenu>             
+                    </p:megaMenu>
+                </h:form>
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>
