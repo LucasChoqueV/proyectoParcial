@@ -55,6 +55,18 @@
                             <p:outputLabel value="$#{productoFormBean.producto.precioProducto}"/>
                         </p:panelGrid>
                     </p:panel>
+                    <p:commandButton id="btnComprar"
+                                     value="Realizar Compra"
+                                     update="growlG">
+                        <p:confirm header="Confirmar Compra" message="¿Estas Seguro?"/>
+                    </p:commandButton>
+                    <p:commandButton id="btnSalir"
+                                     value="Salir y volver al Menu"
+                                     action="menu"/>
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" />
+                    </p:confirmDialog>      
                 </h:form>
             </ui:define>
         </ui:composition>

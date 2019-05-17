@@ -6,7 +6,6 @@
 package aplicacion.modelo.dominio;
 
 import java.io.Serializable;
-
 /**
  *
  * @author Lucas
@@ -78,8 +77,4 @@ public class Usuario implements Serializable{
     public void setDomicilio(String domicilio) {
         this.domicilio = domicilio;
     }
-
-    
-
-    
 }

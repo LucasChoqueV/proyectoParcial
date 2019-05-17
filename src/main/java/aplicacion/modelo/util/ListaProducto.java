@@ -25,18 +25,12 @@ public class ListaProducto implements Serializable{
     public ListaProducto() {
         productos = new ArrayList<>();
         Image imagenv2 = Toolkit.getDefaultToolkit().getImage("resources/image/latitude.jpg");
-        Caracteristicas c1 = new Caracteristicas("Intel I7", "16GB", "1TB HDD");
-        Caracteristicas c2 = new Caracteristicas("AMD Ryzen 5", "12GB", "256GB SDD");
-        Caracteristicas c3 = new Caracteristicas("Qualcomm Snapdragon 835", "8GB", "16GB");
-        Caracteristicas c4 = new Caracteristicas("MediaTek Helio X20", "6GB", "32GB");
+        Caracteristicas c1 = new Caracteristicas("Intel Core I7 3.5GHz", "16GB RAM", "1TB HDD");
+        Caracteristicas c2 = new Caracteristicas("Qualcomm Snapdragon 835", "8GB RAM", " 16GB Interna");
         Producto p1 = new Producto(1, 33000, 4,"Dell Latitude",c1, imagenv2);
-        Producto p2 = new Producto(2, 29999, 2,"Lenovo IdeaPad 330s",c2, imagenv2);
-        Producto p3 = new Producto(3, 15324, 6,"Samsung Galaxy S8 plus",c3, imagenv2);
-        Producto p4 = new Producto(4, 10021, 5,"Motorola G6 plus",c4, imagenv2);
+        Producto p2 = new Producto(2, 15324, 6,"Samsung Galaxy S8 plus",c2, imagenv2);
         productos.add(p1);
         productos.add(p2);
-        productos.add(p3);
-        productos.add(p4);
     }
     
     public Producto obtenerProductoUnico(int codigo){

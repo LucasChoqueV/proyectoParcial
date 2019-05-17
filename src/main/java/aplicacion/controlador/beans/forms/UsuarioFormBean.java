@@ -40,8 +40,6 @@ public class UsuarioFormBean implements Serializable{
         usuario = null;
     }
     
-    public void generarUsuario(){
-    }
     public String verificarDatos(){
         String resultado="";
         Usuario usuario = usuarioDAO.verificarDatos(id, password);

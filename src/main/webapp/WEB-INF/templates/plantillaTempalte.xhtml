@@ -15,38 +15,24 @@
     <h:body>
         <div id="top" class="top">
             <ui:insert name="top">
-                <p:growl id="growlG"/>
-                <p:dialog id="idDialog"
-                          header="Iniciar Sesion"
-                          modal="true"
-                          widgetVar="dlg1">
-                    <h:form id="formG">
-                        <p:panelGrid columns="2" layout="grid">
-                            <p:outputLabel value="Ingrese su ID"/>
-                            <p:inputText id="txtID"
-                                         required="true"
-                                         requiredMessage="Ingrese el ID por favor"
-                                         value="#{usuarioFormBean.id}"/>
-                            <p:outputLabel value="Ingrese su Contraseña"/>
-                            <p:password id="pswPass"
-                                        required="true"
-                                        requiredMessage="Ingrese la contraseña por favor"
-                                        value="#{usuarioFormBean.password}"/>
-                        </p:panelGrid>
-                        <p:commandButton id="btnIniciarSesion"
-                                         update="growlG"
-                                         action="#{usuarioFormBean.verificarDatos()}"
-                                         value="Ingresar"/>
-                    </h:form>
-                </p:dialog>
-                <h:form id="formMenu">
+                <h:form>
+                    <p:growl id="messages"/>
                     <p:menubar>
-                        <f:facet name="options">
-                            <p:commandButton type="button"
-                                             value="Iniciar Sesion"
-                                             onclick="PF('dlg1').show()"
-                                             icon="ui-icon-power" />
-                        </f:facet>
+                        <p:submenu label="Tecnologia" icon="ui-icon-print">
+                            <p:menuitem value="Informatica" action="menu"/>
+                            <p:separator />
+                            <p:menuitem value="TV-Video"/>
+                        </p:submenu>
+
+                        <p:submenu label="Electrodomesticos">
+                            <p:menuitem value="Climatizacion"/>
+                            <p:menuitem value="Redo"/>
+                        </p:submenu>
+
+                        <p:submenu label="Muebles">
+                            <p:menuitem value="Placards"/>
+                            <p:menuitem value="Living"/>
+                        </p:submenu>
                     </p:menubar>
                 </h:form>
             </ui:insert>

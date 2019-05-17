@@ -2,23 +2,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
+
         <ui:composition template="./WEB-INF/templates/plantillaTempalte.xhtml">
+
             <ui:define name="content">
-                <p:growl id="growlCompu" showDetail="true"/>
-                <h:form id="formCompu">
-                    <p:panel>
-                        <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="bar">
-                            <h:outputText value="Inicie Sesion para realizar la compra" style="font-size:37px;" />
-                        </p:notificationBar>
-                        <h2><p:outputLabel value="#{productoFormBean.setCodigo(1)}#{productoFormBean.producto.nombreProducto}" /></h2>
-                        <p:graphicImage name="image/latitude.jpg" width="500" height="350"/>
+                <p:growl id="growlCel"/>
+                <h:form id="formCel">
+                    <p:panel id="pnlCel">
+
+                        <h2><p:outputLabel value="#{productoFormBean.setCodigo(2)}#{productoFormBean.producto.nombreProducto}"/></h2>
+                        <p:graphicImage name="image/s8.jpg" width="350" height="350"/>
                         <p:panelGrid columns="2" layout="grid">
-                            
+
                             <p:outputLabel value="Codigo de Producto"/>
                             <p:outputLabel value="#{productoFormBean.producto.codigoProducto}"/>
 
@@ -36,15 +35,17 @@
 
                             <p:outputLabel value="Stock"/>
                             <p:outputLabel value="#{productoFormBean.producto.stock}"/>
-                            
                             <p:commandButton value="AGREGAR AL CARRITO"
                                              type="button"
-                                             onclick="PF('dlg1').show();PF('bar').show()"
+                                             onclick=" PF('bar').show(); PF('dlg1').show();"
                                              icon="ui-icon-cart"/>
-                            
                         </p:panelGrid>
                     </p:panel>
+                    <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="bar">
+                        <h:outputText value="Inicie Sesion para realizar la compra" style="font-size:37px;" />
+                    </p:notificationBar>
                 </h:form>
+
                 <p:dialog id="idDlgIniciar"
                           header="Iniciar Sesion"
                           modal="true"
@@ -63,8 +64,8 @@
                                         value="#{usuarioFormBean.password}"/>
                         </p:panelGrid>
                         <p:commandButton id="btnIniciarSesion"
-                                         update="growlCompu"
-                                         onclick="PF('bar').hide()"
+                                         update="growlCel"
+                                         onclick ="PF('bar').hide()"
                                          action="#{usuarioFormBean.verificarDatos()}"
                                          value="Ingresar"/>
                     </h:form>
