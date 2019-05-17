@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,17 +12,47 @@
         <h:outputStylesheet name="./css/cssLayout.css"/>
         <title>Facelets Template</title>
     </h:head>
-
     <h:body>
-
         <div id="top" class="top">
-            <ui:insert name="top">Top</ui:insert>
+            <ui:insert name="top">
+                <p:growl id="growlG"/>
+                <p:dialog id="idDialog"
+                          header="Iniciar Sesion"
+                          modal="true"
+                          widgetVar="dlg1">
+                    <h:form id="formG">
+                        <p:panelGrid columns="2" layout="grid">
+                            <p:outputLabel value="Ingrese su ID"/>
+                            <p:inputText id="txtID"
+                                         required="true"
+                                         requiredMessage="Ingrese el ID por favor"
+                                         value="#{usuarioFormBean.id}"/>
+                            <p:outputLabel value="Ingrese su Contraseña"/>
+                            <p:password id="pswPass"
+                                        required="true"
+                                        requiredMessage="Ingrese la contraseña por favor"
+                                        value="#{usuarioFormBean.password}"/>
+                        </p:panelGrid>
+                        <p:commandButton id="btnIniciarSesion"
+                                         update="growlG"
+                                         action="#{usuarioFormBean.verificarDatos()}"
+                                         value="Ingresar"/>
+                    </h:form>
+                </p:dialog>
+                <h:form id="formMenu">
+                    <p:menubar>
+                        <f:facet name="options">
+                            <p:commandButton type="button"
+                                             value="Iniciar Sesion"
+                                             onclick="PF('dlg1').show()"
+                                             icon="ui-icon-power" />
+                        </f:facet>
+                    </p:menubar>
+                </h:form>
+            </ui:insert>
         </div>
-
         <div id="content" class="center_content">
             <ui:insert name="content">Content</ui:insert>
         </div>
-
     </h:body>
-
 </html>

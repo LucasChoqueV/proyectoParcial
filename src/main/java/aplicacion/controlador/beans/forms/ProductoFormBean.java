@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
@@ -22,7 +22,7 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "productoFormBean")
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class ProductoFormBean {
     
     private IProductoDAO productoDAO;

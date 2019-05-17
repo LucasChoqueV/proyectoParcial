@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaTempalte.xhtml">
+
+            <ui:define name="top">
+                <p:growl id="growlG"/>
+                <h:form id="formMenu">
+                    <p:menubar>
+                        <f:facet name="options">
+                            <p:panel id="panelMenu">
+                                <p:panelGrid id="panelGridMenu" columns="2" layout="grid">
+                                    <p:outputLabel value="Nombre:"/>
+                                    <p:outputLabel value="#{usuarioFormBean.usuario.nombre}"/>
+                                    <p:outputLabel value="Apellido"/>
+                                    <p:outputLabel value="#{usuarioFormBean.usuario.apellido}"/>
+                                </p:panelGrid>
+                            </p:panel>
+                        </f:facet>
+                    </p:menubar>
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <h:form id="formCompra">
+                    <p:panel id="pnlComprador" header="Datos del Comprador">
+                        <p:panelGrid id="pnlGridComprador" columns="2" layout="grid">
+                            <p:outputLabel value="Nombre"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.nombre}"/>
+                            <p:outputLabel value="Apellido"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.apellido}"/>
+                            <p:outputLabel value="E-Mail"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.email}"/>
+                            <p:outputLabel value="Domicilio"/>
+                            <p:outputLabel value="#{usuarioFormBean.usuario.domicilio}"/>
+                        </p:panelGrid>
+                    </p:panel>
+                    <p:panel id="pnlVenta" header="Detalle de la compra">
+                        <p:panelGrid id="pnlGVenta" columns="2" layout="grid">
+                            <p:outputLabel value="Codigo de Producto"/>
+                            <p:outputLabel value="#{productoFormBean.producto.codigoProducto}"/>
+                            <p:outputLabel value="Nombre de Producto"/>
+                            <p:outputLabel value="#{productoFormBean.producto.nombreProducto}"/>
+                            <p:outputLabel value="Datalles"/>
+                            <p:outputLabel value="#{productoFormBean.producto.caracteristica.procesador},
+                                           #{productoFormBean.producto.caracteristica.memoriaRam},
+                                           #{productoFormBean.producto.caracteristica.almacenamiento}"/>
+                            <p:outputLabel value="Precio"/>
+                            <p:outputLabel value="$#{productoFormBean.producto.precioProducto}"/>
+                        </p:panelGrid>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
