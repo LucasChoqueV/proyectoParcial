@@ -15,14 +15,16 @@
                 <h:form id="formMenu">
                     <p:menubar>
                         <f:facet name="options">
-                            <p:panel id="panelMenu">
                                 <p:panelGrid id="panelGridMenu" columns="2" layout="grid">
-                                    <p:outputLabel value="Nombre:"/>
+                                    <p:outputLabel value="Nombre"/>
                                     <p:outputLabel value="#{usuarioFormBean.usuario.nombre}"/>
                                     <p:outputLabel value="Apellido"/>
                                     <p:outputLabel value="#{usuarioFormBean.usuario.apellido}"/>
                                 </p:panelGrid>
-                            </p:panel>
+                                <p:commandButton id="btnCerrarSesion"
+                                                 value="Cerrar Sesion"
+                                                 action="menu"
+                                                 icon="ui-icon-power"/>
                         </f:facet>
                     </p:menubar>
                 </h:form>
@@ -55,14 +57,11 @@
                             <p:outputLabel value="$#{productoFormBean.producto.precioProducto}"/>
                         </p:panelGrid>
                     </p:panel>
-                    <p:commandButton id="btnComprar"
-                                     value="Realizar Compra"
-                                     update="growlG">
-                        <p:confirm header="Confirmar Compra" message="¿Estas Seguro?"/>
-                    </p:commandButton>
-                    <p:commandButton id="btnSalir"
-                                     value="Salir y volver al Menu"
-                                     action="menu"/>
+                        <p:commandButton id="btnComprar"
+                                         value="Realizar Compra"
+                                         update="growlG">
+                            <p:confirm header="Confirmar Compra" message="¿Estas Seguro?"/>
+                        </p:commandButton>
                     <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                         <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" />
                         <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" />
