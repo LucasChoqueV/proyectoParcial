@@ -37,12 +37,12 @@
                             <p:outputLabel value="#{productoFormBean.producto.stock}"/>
                             <p:commandButton value="AGREGAR AL CARRITO"
                                              type="button"
-                                             onclick=" PF('bar').show(); PF('dlg1').show();"
+                                             onclick=" PF('barIniciarSesion').show(); PF('dlg1').show();"
                                              icon="ui-icon-cart"/>
                         </p:panelGrid>
                     </p:panel>
-                    <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="bar">
-                        <h:outputText value="Inicie Sesion para realizar la compra" style="font-size:37px;" />
+                    <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="barIniciarSesion">
+                        <h:outputText value="Para realizar la compra, se requiere que inicie Sesion" style="font-size:37px;" />
                     </p:notificationBar>
                 </h:form>
 

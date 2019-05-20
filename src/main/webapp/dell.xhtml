@@ -12,9 +12,6 @@
                 <p:growl id="growlCompu" showDetail="true"/>
                 <h:form id="formCompu">
                     <p:panel>
-                        <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="bar">
-                            <h:outputText value="Inicie Sesion para realizar la compra" style="font-size:37px;" />
-                        </p:notificationBar>
                         <h2><p:outputLabel value="#{productoFormBean.setCodigo(1)}#{productoFormBean.producto.nombreProducto}" /></h2>
                         <p:graphicImage name="image/latitude.jpg" width="500" height="350"/>
                         <p:panelGrid columns="2" layout="grid">
@@ -39,11 +36,14 @@
                             
                             <p:commandButton value="AGREGAR AL CARRITO"
                                              type="button"
-                                             onclick="PF('dlg1').show();PF('bar').show()"
+                                             onclick="PF('dlg1').show();PF('barIniciarSesion').show()"
                                              icon="ui-icon-cart"/>
                             
                         </p:panelGrid>
                     </p:panel>
+                        <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="barIniciarSesion">
+                            <h:outputText value="Para realizar la compra, se requiere que inicie Sesion" style="font-size:37px;" />
+                        </p:notificationBar>
                 </h:form>
                 <p:dialog id="idDlgIniciar"
                           header="Iniciar Sesion"

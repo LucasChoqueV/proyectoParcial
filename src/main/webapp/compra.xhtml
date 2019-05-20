@@ -14,13 +14,28 @@
                 <p:growl id="growlG"/>
                 <h:form id="formMenu">
                     <p:menubar>
+                          <p:submenu label="Informacion">
+                            <p:menuitem value="Datos Personales"/>
+                            <p:separator />
+                        </p:submenu>
+
+                        <p:submenu label="Mi Carrito">
+                            <p:menuitem value="Datos de la compra"/>
+                        </p:submenu>
+
+                        <p:submenu label="Marcas Sponsors">
+                            <p:menuitem value="Dell.com"/>
+                            <p:menuitem value="Samsung.com"/>
+                        </p:submenu>
+                        
                         <f:facet name="options">
-                                <p:panelGrid id="panelGridMenu" columns="2" layout="grid">
-                                    <p:outputLabel value="Nombre"/>
-                                    <p:outputLabel value="#{usuarioFormBean.usuario.nombre}"/>
-                                    <p:outputLabel value="Apellido"/>
-                                    <p:outputLabel value="#{usuarioFormBean.usuario.apellido}"/>
+                                <p:panelGrid id="panelGridMenu" columns="1" layout="grid">
+                                    <p:graphicImage name="image/user.png" width="50" height="50"/>
+                                    
+                                    <p:outputLabel value="Nombre: #{usuarioFormBean.usuario.nombre}"/>
+                                    <p:outputLabel value="Apellido: #{usuarioFormBean.usuario.apellido}"/>
                                 </p:panelGrid>
+                            
                                 <p:commandButton id="btnCerrarSesion"
                                                  value="Cerrar Sesion"
                                                  action="menu"
@@ -57,15 +72,23 @@
                             <p:outputLabel value="$#{productoFormBean.producto.precioProducto}"/>
                         </p:panelGrid>
                     </p:panel>
+                    <p/>
                         <p:commandButton id="btnComprar"
-                                         value="Realizar Compra"
+                                         value="Comprar"
                                          update="growlG">
-                            <p:confirm header="Confirmar Compra" message="¿Estas Seguro?"/>
+                            <p:confirm header="Confirmar Compra" message="Necesitamos que confirme la compra ¿Estas Seguro?"/>
                         </p:commandButton>
                     <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" />
-                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" />
-                    </p:confirmDialog>      
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" onclick="PF('barComprar').show()"/>
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" onclick="PF('barCancelar').show()"/>
+                    </p:confirmDialog>
+                    
+                    <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="barComprar">
+                        <h:outputText value="La compra se ha realizado con Exito" style="font-size:37px;" />
+                    </p:notificationBar>
+                    <p:notificationBar position="top" effect="fade" styleClass="top" widgetVar="barCancelar">
+                        <h:outputText value="La compra se ha cancelado" style="font-size:37px;" />
+                    </p:notificationBar>
                 </h:form>
             </ui:define>
         </ui:composition>
