@@ -5,9 +5,7 @@
  */
 package aplicacion.modelo.dominio;
 
-import java.awt.Image;
 import java.io.Serializable;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,19 +17,21 @@ public class Producto implements Serializable{
     private int precioProducto;
     private int stock;
     private String nombreProducto;
-    private Caracteristicas caracteristicas;
-    private Image imagen;
+    private String caracteristicas;
+    private String imagen;
+    private String categoria;
 
     public Producto() {
     }
 
-    public Producto(int codigoProducto, int precioProducto, int stock, String nombreProducto, Caracteristicas caracteristica, Image imagen) {
+    public Producto(int codigoProducto, int precioProducto, int stock, String nombreProducto, String caracteristicas, String imagen, String categoria) {
         this.codigoProducto = codigoProducto;
         this.precioProducto = precioProducto;
         this.stock = stock;
         this.nombreProducto = nombreProducto;
-        this.caracteristicas = caracteristica;
+        this.caracteristicas = caracteristicas;
         this.imagen = imagen;
+        this.categoria = categoria;
     }
 
     public int getCodigoProducto() {
@@ -66,19 +66,29 @@ public class Producto implements Serializable{
         this.nombreProducto = nombreProducto;
     }
 
-    public Caracteristicas getCaracteristica() {
+    public String getCaracteristicas() {
         return caracteristicas;
     }
 
-    public void setCaracteristica(Caracteristicas caracteristicas) {
+    public void setCaracteristicas(String caracteristicas) {
         this.caracteristicas = caracteristicas;
     }
 
-    public Image getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Image imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    
 }

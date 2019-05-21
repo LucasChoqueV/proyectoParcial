@@ -22,15 +22,24 @@ public class ProductoDAOImp implements Serializable, IProductoDAO{
     public ProductoDAOImp(){
         listaProducto = new ListaProducto();
     }
+    @Override
+    public void agregarProducto(Producto p) {
+        listaProducto.agregarProducto(p);
+    }
 
     @Override
-    public List<Producto> obtenerProductos() {
-        return listaProducto.getProductos();
+    public void eliminarProducto(Producto p) {
+        listaProducto.eliminarProducto(p);
+    }
+
+    @Override
+    public void modificarProducto(Producto p) {
+        listaProducto.modificarProducto(p);
     }
     
     @Override
-    public Producto obtenerProductoUnico(int codigo) {
-        return listaProducto.obtenerProductoUnico(codigo);
+    public List<Producto> obtenerProductos() {
+        return listaProducto.getProductos();
     }
 
     public ListaProducto getListaProducto() {

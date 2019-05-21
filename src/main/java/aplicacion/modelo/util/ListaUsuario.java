@@ -22,8 +22,9 @@ public class ListaUsuario implements Serializable{
         usuarios = new ArrayList<>();
         usuarios.add(new Usuario("lucas14", "lucas", "Lucas", "Choque", "lucas14_@gmail.com", "San Salvador de Jujuy"));
         usuarios.add(new Usuario("kevin10", "kevin", "Kevin", "Santos", "kevin10_@gmail.com", "San Salvador de Jujuy"));
+        usuarios.add(new Usuario("root", "root", "root", "root", "root@root.root", "root"));
     }
-    
+   
     public Usuario verificarDatos(String id, String password){
         Usuario aux = null;
         for(Usuario u : usuarios){

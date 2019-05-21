@@ -12,12 +12,7 @@ import java.util.List;
  *
  * @author Lucas
  */
-public interface IProductoDAO {
+public interface IComputadoraDAO {
     
-    List<Producto> obtenerProductos();
-    void agregarProducto(Producto p);
-    void eliminarProducto(Producto p);
-    void modificarProducto(Producto p);
-    
-    
+    List<Producto> obtenerComputadora();
 }

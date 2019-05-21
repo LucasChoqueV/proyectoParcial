@@ -24,22 +24,56 @@ public class ListaProducto implements Serializable{
 
     public ListaProducto() {
         productos = new ArrayList<>();
-        Image imagenv2 = Toolkit.getDefaultToolkit().getImage("resources/image/latitude.jpg");
-        Caracteristicas c1 = new Caracteristicas("Intel Core I7 3.5GHz", "16GB RAM", "1TB HDD");
-        Caracteristicas c2 = new Caracteristicas("Qualcomm Snapdragon 835", "8GB RAM", " 16GB Interna");
-        Producto p1 = new Producto(1, 33000, 4,"Dell Latitude",c1, imagenv2);
-        Producto p2 = new Producto(2, 15324, 6,"Samsung Galaxy S8 plus",c2, imagenv2);
+        Producto p1 = new Producto(1, 33000, 4,"Dell Latitude","Intel i7", "image/productos/prod2.jpg","computadora");
+        Producto p2 = new Producto(2, 15324, 6,"Samsung Galaxy S8 plus","Android 7", "image/productos/prod1.jpg","celular");
+        Producto p3 = new Producto(3, 314421,2,"Lenovo Think Pad","Intel I9","image/productos/prod2.jpg","computadora");
         productos.add(p1);
         productos.add(p2);
+        productos.add(p3);
     }
-    
-    public Producto obtenerProductoUnico(int codigo){
-        Producto aux = null;
-        for(Producto p: productos){
-            if(p.getCodigoProducto() == codigo)
-                aux=p;
+    public void agregarProducto(Producto p){
+        Producto aux = new Producto();
+        aux = p;
+        int i;
+        for(i=0;i<productos.size();i++);
+        if(i>0)
+            aux.setCodigoProducto(productos.get(productos.size()-1).getCodigoProducto()+1);
+        else
+            aux.setCodigoProducto(1);
+        productos.add(aux);
+    }
+    public void eliminarProducto(Producto p){
+        for(int i=0;i<productos.size();i++){
+            if(productos.get(i).getCodigoProducto() == p.getCodigoProducto())
+                productos.remove(i);
         }
-        return aux;
+    }
+    public void modificarProducto(Producto p){
+        for(int i=0;i<productos.size();i++){
+            if(productos.get(i).getCodigoProducto() == p.getCodigoProducto()){
+                productos.remove(i);
+                productos.add(i, p);
+            }
+        }
+    }
+    public List<Producto> obtenerCelulares(){
+        List<Producto> celulares = new ArrayList<>();
+        for(int i=0;i<productos.size();i++){
+            if(productos.get(i).getCategoria().equalsIgnoreCase("celular")){
+                celulares.add(productos.get(i));
+            }
+                
+        }
+        return celulares;
+    }
+    public List<Producto> obtenerComputadoras(){
+        List<Producto> computadora = new ArrayList<>();
+        for(int i=0;i<productos.size();i++){
+            if(productos.get(i).getCategoria().equalsIgnoreCase("computadora")){
+                computadora.add(productos.get(i));
+            }
+        }
+        return computadora;
     }
   
     public List<Producto> getProductos() {

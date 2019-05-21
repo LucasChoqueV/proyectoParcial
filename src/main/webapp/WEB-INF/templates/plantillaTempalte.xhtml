@@ -17,22 +17,24 @@
             <ui:insert name="top">
                 <h:form>
                     <p:growl id="messages"/>
-                    <p:menubar>
-                        <p:submenu label="Tecnologia" icon="ui-icon-print">
-                            <p:menuitem value="Informatica" action="menu"/>
-                            <p:separator />
-                            <p:menuitem value="TV-Video"/>
+                    <p:megaMenu>
+                        <p:submenu label="Productos">
+                            <p:column>
+                                <p:submenu label="Tecnologia" icon="ui-icon-print">
+                                    <p:menuitem value="Informatica" action="menu"/>
+                                    <p:separator />
+                                    <p:menuitem value="TV-Video"/>
+                                </p:submenu>
+                            </p:column>
                         </p:submenu>
-
-                        <p:submenu label="Electrodomesticos">
-                            <p:menuitem value="Climatizacion"/>
+                        <p:submenu label="Inicio">
+                            <p:column>
+                                <p:submenu label="Inicio">
+                                    <p:menuitem value="Inicio" action="inicio"/>
+                                </p:submenu>
+                            </p:column>
                         </p:submenu>
-
-                        <p:submenu label="Muebles">
-                            <p:menuitem value="Placards"/>
-                            <p:menuitem value="Living"/>
-                        </p:submenu>
-                    </p:menubar>
+                    </p:megaMenu>
                 </h:form>
             </ui:insert>
         </div>

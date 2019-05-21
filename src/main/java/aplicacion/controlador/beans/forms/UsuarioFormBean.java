@@ -45,7 +45,7 @@ public class UsuarioFormBean implements Serializable{
         Usuario usuario = usuarioDAO.verificarDatos(id, password);
         if(usuario != null){
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
-            resultado = "compra?faces-redirect=true";
+            resultado = "menu?faces-redirect=true";
             this.usuario = usuario;
         }
         else{
@@ -54,7 +54,6 @@ public class UsuarioFormBean implements Serializable{
         }
         return resultado;
     }
-    
     public String getId() {
         return id;
     }
